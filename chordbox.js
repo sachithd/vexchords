@@ -9,7 +9,7 @@ import { SVG } from '@svgdotjs/svg.js';
 // diagrams.
 class ChordBox {
   // sel can be a selector or an element.
-  constructor(params, sel) {
+  constructor(sel, params) {
     this.sel = sel;
     this.params = {
       ...{
