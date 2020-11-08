@@ -43,8 +43,11 @@ class ChordBox {
     });
 
     // Create canvas and add it to the DOM
-    this.canvas = SVG()
+    /* this.canvas = SVG()
       .addTo(sel)
+      .size(this.params.width, this.params.height); */
+
+    this.canvas = SVG()
       .size(this.params.width, this.params.height);
 
     // Size and shift board
@@ -233,6 +236,15 @@ class ChordBox {
       .fill(this.params.strokeColor);
 
     return this;
+  }
+
+  drawAndReturnSvg({
+    chord, position, barres, positionText, tuning,
+  }) {
+    this.draw({
+      chord, position, barres, positionText, tuning,
+    });
+    return this.canvas;
   }
 }
 
