@@ -9,7 +9,7 @@ import { SVG } from '@svgdotjs/svg.js';
 // diagrams.
 class ChordBox {
   // sel can be a selector or an element.
-  constructor(sel, params) {
+  constructor(params, sel) {
     this.sel = sel;
     this.params = {
       ...{
@@ -43,12 +43,14 @@ class ChordBox {
     });
 
     // Create canvas and add it to the DOM
-    /* this.canvas = SVG()
-      .addTo(sel)
-      .size(this.params.width, this.params.height); */
-
-    this.canvas = SVG()
-      .size(this.params.width, this.params.height);
+    if (this.sel) {
+      this.canvas = SVG()
+        .addTo(sel)
+        .size(this.params.width, this.params.height);
+    } else {
+      this.canvas = SVG()
+        .size(this.params.width, this.params.height);
+    }
 
     // Size and shift board
     this.width = this.params.width * 0.75;
